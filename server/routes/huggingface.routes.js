@@ -1,9 +1,10 @@
 import express from "express";
 import * as dotenv from "dotenv";
-import axios from "axios";
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+const fetch = require("node-fetch")
 
 dotenv.config();
 
