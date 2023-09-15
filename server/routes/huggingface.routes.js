@@ -18,16 +18,19 @@ router.route("/").get((req, res) => {
 router.route("/").post(async (req, res) => {
   try {
     const { prompt } = req.body;
+    // Generate a random seed for each request
+    const seed = Math.floor(Math.random() * 10000);
 
     const payload = {
       prompt,
       n: 1,
       size: "1024x1024",
       response_format: "url",
+      seed: seed,
     };
     
     const response = await fetch(
-      "https://api-inference.huggingface.co/models/prompthero/openjourney",
+      "https://api-inference.huggingface.co/models/Envvi/Inkpunk-Diffusion",
       {
         headers: {
           Authorization: `Bearer ${API_TOKEN}`,
@@ -35,6 +38,9 @@ router.route("/").post(async (req, res) => {
         method: "POST",
         body: JSON.stringify({ 
             inputs: prompt,
+            options: {
+                seed: seed,
+            },
         }),
       }
     );
