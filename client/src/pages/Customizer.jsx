@@ -53,7 +53,7 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch('http://localhost:8080/api/v1/huggingface', {
+      const response = await fetch("https://threed-tshiry.onrender.com/api/v1/huggingface", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
